@@ -25,7 +25,7 @@ const Product = ( { id, title, price, description, category, image } ) => {
         <p className="text-xs my-2 line-clamp-2"> {description} </p>
 
         <div className="mb-5">
-            <Currency quantity={price}/>
+            <Currency quantity={price} />
         </div>
 
         {hasPrime && (
@@ -35,7 +35,7 @@ const Product = ( { id, title, price, description, category, image } ) => {
             </div>
         )}
 
-        <button className="mt-auto button"> Add to Basket</button>
+        <button className="mt-auto button"> Add to Basket </button>
 
     </div>
   )
