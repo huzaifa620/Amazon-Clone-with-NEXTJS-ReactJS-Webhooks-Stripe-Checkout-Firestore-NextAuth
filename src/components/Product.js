@@ -1,14 +1,21 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Currency from 'react-currency-formatter';
+import { useState, useEffect } from "react";
 
 const Product = ( { id, title, price, description, category, image } ) => {
 
-    var rating = Math.floor(((Math.random() * 10) + 1)/2);
-    var hasPrime = Math.random() < 0.5
+    const [rating, setRating] = useState(1)
+    const [hasPrime, setHasPrime] = useState(false)
+
+    useEffect(() => {
+        setRating(Math.floor(((Math.random() * 10) + 1)/2))
+        setHasPrime(Math.random() < 0.5)        
+    }, []);
+
 
   return (
-    <div className="relative flex flex-col m-5 bg-white z-30 p-10">
+    <div className="relative flex flex-col m-5 bg-white z-30 p-10" key={id}>
 
         <p className="absolute top-2 right-2 text-xs italic text-gray-400"> {category} </p>
 
