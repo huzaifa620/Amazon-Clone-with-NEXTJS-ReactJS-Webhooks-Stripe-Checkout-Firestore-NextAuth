@@ -1,8 +1,39 @@
-
+import { StarIcon } from "@heroicons/react/24/solid";
+import Currency from "react-currency-formatter"
 
 const CheckoutProduct = ( { id, title, price, rating, description, category, image, hasPrime } ) => {
   return (
-    <div>CheckoutProduct</div>
+    <div className="grid grid-cols-5">
+
+      <img src={image} alt='' height={200} width={200} objectFit='contain' />
+
+      <div className="col-span-3 mx-5">
+
+        <p> { title } </p>
+
+        <div className="flex">
+          { Array(rating).fill().map((val, ind) => (
+            <StarIcon className="h-5 text-yellow-500"/>
+          )) }
+        </div>
+
+        <p className="text-xs my-2 line-clamp-3"> {description} </p>
+
+        <Currency quantity={price} />
+
+        {hasPrime && (
+          <div className="flex items-center space-x-2">
+
+            <img loading="lazy" className="w-12" src="https://whitebox.com/wp-content/uploads/2020/05/Prime-tag-.png" alt="" />
+
+            <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
+          
+          </div>
+        )}
+
+      </div>
+
+    </div>
   )
 }
 
