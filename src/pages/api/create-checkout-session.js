@@ -21,6 +21,7 @@ export default async (req, res) => {
     const session = await stripe.checkot.session.create(
         {
             payment_method_types: ["card"],
+            shipping_rates: ['shr_1M6AvBCzu6a96DIo5oMkF9gU'],
             shipping_address_collection: {
                 allowed_countries: ["GB", "US", "CA"]
             },
@@ -34,4 +35,6 @@ export default async (req, res) => {
             }
         }
     )
+
+    res.status(200).json({ id: session.id })
 }

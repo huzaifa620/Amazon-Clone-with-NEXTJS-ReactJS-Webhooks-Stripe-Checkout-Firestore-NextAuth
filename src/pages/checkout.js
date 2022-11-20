@@ -5,6 +5,7 @@ import CheckoutProduct from "../components/CheckoutProduct"
 import Currency from "react-currency-formatter"
 import { useSession } from "next-auth/react"
 import { loadStripe } from "@stripe/stripe-js"
+import axios from "axios"
 
 const stripePromise = loadStripe(process.env.stripe_public_key)
 
@@ -21,6 +22,14 @@ const checkout = () => {
       items,
       email: session.user.email
     })
+
+    // Redirect user to stripe Checkout
+    const result = await stripe.redirectToCheckout(
+      {sessionId: checkoutSession.data.id}
+    )
+
+    if (result.error) alert(result.error.message)
+
   }
 
   return (
