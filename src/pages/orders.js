@@ -5,7 +5,7 @@ import Order from "../components/Order"
 import moment from "moment";
 
 const Orders = ({orders}) => {
-    const [session] = useSession()
+  const { data: session } = useSession();
   return (
     <div>
         <Header />

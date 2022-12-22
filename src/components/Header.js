@@ -12,7 +12,7 @@ const Header = () => {
   const items = useSelector(selectItems)
 
   return (
-    <header className="sticky">
+    <header className="top-0 sticky z-50">
 
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
 
