@@ -4,7 +4,7 @@
 
 @layer components {
     .link {
-        @apply cursor-pointer hover:border focus:outline-none;
+        @apply cursor-pointer p-1 hover:border focus:outline-none;
     }
 
     .button {
